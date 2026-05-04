@@ -44,12 +44,11 @@
 
 <img width="1280" height="732" alt="1 1" src="https://github.com/user-attachments/assets/41b22028-b44a-4672-9def-8c872ec24533" />
 
-
 После ввода информации нажала CREATE AND CONTINUE.
 
 Затем выбрала роль Storage Admin.
 
-![Скрин](lab1/images/1_2.jpg)
+<img width="1280" height="764" alt="1 2" src="https://github.com/user-attachments/assets/0821cf5c-07e6-4c34-a442-a7fa9c488e72" />
 
 Получила email imazhukina-sa-lab1@cloud-platforms-as-the-basis.iam.gserviceaccount.com.
 
@@ -57,7 +56,7 @@
 
 Перешла в раздел Compute Engine - VM instances
 
-![Скрин](lab1/images/1_3.jpg)
+<img width="1280" height="764" alt="1 3" src="https://github.com/user-attachments/assets/1c30fff0-8dcb-4aaa-8a08-d2bd2929bba3" />
 
 Нажала CREATE INSTANCE
 
@@ -66,16 +65,17 @@
 - В разделе Advanced options - Availability policy, в VM provisioning model выбрала Spot.
 - Изменила сервисный аккаунт на свой.
 
-![Скрин](lab1/images/1_4.jpg)
-![Скрин](lab1/images/1_5.jpg)
-![Скрин](lab1/images/1_6.jpg)
-![Скрин](lab1/images/1_7.jpg)
+<img width="1280" height="758" alt="1 4" src="https://github.com/user-attachments/assets/4286d3e4-f826-4d28-8536-4167e6866789" />
+<img width="1280" height="765" alt="1 5" src="https://github.com/user-attachments/assets/a8cdf23c-6d5d-43ef-8188-81a2784869ec" />
+<img width="1280" height="763" alt="1 6" src="https://github.com/user-attachments/assets/148778db-b45c-4718-96df-66a9effd11de" />
+<img width="846" height="236" alt="1 7" src="https://github.com/user-attachments/assets/276bc734-083b-4462-bd45-828c898cefbe" />
+
 
 Нажала CREATE
 
 VM создалась и включилась.
 
-![Скрин](lab1/images/1_8.jpg)
+<img width="1161" height="323" alt="1 8" src="https://github.com/user-attachments/assets/fc97a09f-bdf0-4237-9e86-8ae659d95308" />
 
 ### 4. Работа с Cloud Storage и gsutil
 
@@ -83,14 +83,14 @@ VM создалась и включилась.
 
 Проверила какой аккаунт используется 
 
-![Скрин](lab1/images/1_13.jpg)
+<img width="1280" height="238" alt="1 13" src="https://github.com/user-attachments/assets/7429fa0d-7ef3-41e6-affc-8045b03a8ef3" />
 
 В терминале ВМ ввела команду, чтобы убедиться, что бакет существует и доступен:
 
 ```bash
 gsutil ls gs://lab1-bucket-itmo
 ```
-![Скрин](lab1/images/1_9.jpg)
+<img width="1280" height="439" alt="1 9" src="https://github.com/user-attachments/assets/cb9ad923-6817-4edd-b5ea-a7e4d41c0ce5" />
 
 Создала папку на ВМ и скопировала туда 3 файла.
 
@@ -99,14 +99,16 @@ mkdir ~/lab-files
 gsutil cp gs://lab1-bucket-itmo/* ~/lab-files/
 ```
 
-![Скрин](lab1/images/1_10.jpg)
+<img width="1280" height="598" alt="1 10" src="https://github.com/user-attachments/assets/11df70f5-edaa-44b1-9d5d-35b0cf240fd8" />
+
 
 Выполнила команду для списка файлов с размерами
 
 ```bash
 ls -lah ~/lab-files/
 ```
-![Скрин](lab1/images/1_11.jpg)
+<img width="1280" height="813" alt="1 11" src="https://github.com/user-attachments/assets/4ca166c7-3b93-480e-b6c3-53607e6cc893" />
+
 
 ### 5. Изменение прав доступа
 
@@ -116,7 +118,8 @@ ls -lah ~/lab-files/
 
 Изменила роль: удалила роль Storage Admin и добавила роль Compute Viewer.
 
-![Скрин](lab1/images/1_12.jpg)
+<img width="1256" height="1242" alt="1 12" src="https://github.com/user-attachments/assets/7e3c31d9-f8e7-4244-a35d-854f713a0528" />
+
 
 Вернулась в SSH терминал.
 Попыталась снова скопировать файлы с помощью команды:
@@ -126,10 +129,12 @@ gsutil cp gs://lab1-bucket-itmo/* ~/lab-files/
 ```
 
 Получила ошибку
-![Скрин](lab1/images/1_14.jpg)
+<img width="1280" height="167" alt="1 14" src="https://github.com/user-attachments/assets/7da4c69d-9e65-4921-9cd0-cfa5b89e002e" />
+
 
 Это произошло в связи с тем, что у моего аккаунта больше нет прав Storage Admin, а роль Compute Viewer позволяет только смотреть ВМ, но не читать данные из Cloud Storage. Для доступа к хранилищу нужны специфичные роли Storage, а не Compute.
 
 Удалила VM
-![Скрин](lab1/images/1_15.jpg)
+<img width="880" height="479" alt="1 15" src="https://github.com/user-attachments/assets/c25b2ac6-8f49-4df3-a414-ca6d0fece33c" />
+
 
