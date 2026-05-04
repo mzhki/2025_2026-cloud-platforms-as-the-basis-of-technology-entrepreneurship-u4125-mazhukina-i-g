@@ -42,13 +42,13 @@
 
 Мне нужна учетная запись для программного доступа к ресурсам, а не личный Google аккаунт. В поиске сверху ввела IAM и перешла в раздел IAM & Admin - Service Accounts. Нажмите + СОЗДАТЬ СЕРВИСНЫЙ АККАУНТ.
 
-![Скрин](../1_1.jpg)
+![Скрин](lab1/images/1_1.jpg)
 
 После ввода информации нажала CREATE AND CONTINUE.
 
 Затем выбрала роль Storage Admin.
 
-![Скрин](../1_2.jpg)
+![Скрин](lab1/images/1_2.jpg)
 
 Получила email imazhukina-sa-lab1@cloud-platforms-as-the-basis.iam.gserviceaccount.com.
 
@@ -56,7 +56,7 @@
 
 Перешла в раздел Compute Engine - VM instances
 
-![Скрин](../1_3.jpg)
+![Скрин](lab1/images/1_3.jpg)
 
 Нажала CREATE INSTANCE
 
@@ -65,16 +65,16 @@
 - В разделе Advanced options - Availability policy, в VM provisioning model выбрала Spot.
 - Изменила сервисный аккаунт на свой.
 
-![Скрин](../1_4.jpg)
-![Скрин](../1_5.jpg)
-![Скрин](../1_6.jpg)
-![Скрин](../1_7.jpg)
+![Скрин](lab1/images/1_4.jpg)
+![Скрин](lab1/images/1_5.jpg)
+![Скрин](lab1/images/1_6.jpg)
+![Скрин](lab1/images/1_7.jpg)
 
 Нажала CREATE
 
 VM создалась и включилась.
 
-![Скрин](../1_8.jpg)
+![Скрин](lab1/images/1_8.jpg)
 
 ### 4. Работа с Cloud Storage и gsutil
 
@@ -82,14 +82,14 @@ VM создалась и включилась.
 
 Проверила какой аккаунт используется 
 
-![Скрин](../1_13.jpg)
+![Скрин](lab1/images/1_13.jpg)
 
 В терминале ВМ ввела команду, чтобы убедиться, что бакет существует и доступен:
 
 ```bash
 gsutil ls gs://lab1-bucket-itmo
 ```
-![Скрин](../1_9.jpg)
+![Скрин](lab1/images/1_9.jpg)
 
 Создала папку на ВМ и скопировала туда 3 файла.
 
@@ -98,14 +98,14 @@ mkdir ~/lab-files
 gsutil cp gs://lab1-bucket-itmo/* ~/lab-files/
 ```
 
-![Скрин](../1_10.jpg)
+![Скрин](lab1/images/1_10.jpg)
 
 Выполнила команду для списка файлов с размерами
 
 ```bash
 ls -lah ~/lab-files/
 ```
-![Скрин](../1_11.jpg)
+![Скрин](lab1/images/1_11.jpg)
 
 ### 5. Изменение прав доступа
 
@@ -115,7 +115,7 @@ ls -lah ~/lab-files/
 
 Изменила роль: удалила роль Storage Admin и добавила роль Compute Viewer.
 
-![Скрин](../1_12.jpg)
+![Скрин](lab1/images/1_12.jpg)
 
 Вернулась в SSH терминал.
 Попыталась снова скопировать файлы с помощью команды:
@@ -125,10 +125,10 @@ gsutil cp gs://lab1-bucket-itmo/* ~/lab-files/
 ```
 
 Получила ошибку
-![Скрин](../1_14.jpg)
+![Скрин](lab1/images/1_14.jpg)
 
 Это произошло в связи с тем, что у моего аккаунта больше нет прав Storage Admin, а роль Compute Viewer позволяет только смотреть ВМ, но не читать данные из Cloud Storage. Для доступа к хранилищу нужны специфичные роли Storage, а не Compute.
 
 Удалила VM
-![Скрин](../1_15.jpg)
+![Скрин](lab1/images/1_15.jpg)
 
