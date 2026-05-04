@@ -42,7 +42,8 @@
 
 Мне нужна учетная запись для программного доступа к ресурсам, а не личный Google аккаунт. В поиске сверху ввела IAM и перешла в раздел IAM & Admin - Service Accounts. Нажмите + СОЗДАТЬ СЕРВИСНЫЙ АККАУНТ.
 
-![Скрин](lab1/images/1_1.jpg)
+<img width="1280" height="732" alt="1 1" src="https://github.com/user-attachments/assets/41b22028-b44a-4672-9def-8c872ec24533" />
+
 
 После ввода информации нажала CREATE AND CONTINUE.
 
