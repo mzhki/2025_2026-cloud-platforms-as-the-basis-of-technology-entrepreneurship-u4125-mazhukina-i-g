@@ -58,7 +58,8 @@ Cloud Run идеален для малого трафика (платим 0 за
 Хранение сессий и Rate Limiting (защита от перерасхода токенов Vertex AI).
 
 ### 3. Архитектурная схема
-<img width="930" height="740" alt="image" src="https://github.com/user-attachments/assets/4d280d0b-1143-4a00-ab32-10d4a40c71a8" />
+<img width="953" height="525" alt="image" src="https://github.com/user-attachments/assets/9f18c554-1b95-44b8-a284-4c9411b6d123" />
+
 
 
 ### 4. Расчет экономической модели
